@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,7 +27,12 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'api_key'
+        'email_verified_at',
+        'type_id',
+        'hash',
+        'remember_token',
+        'created_at',
+        'updated_at',
     ];
 
     public function shipments()

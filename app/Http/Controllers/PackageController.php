@@ -15,7 +15,7 @@ class PackageController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
     }
 
     /**
@@ -42,7 +42,7 @@ class PackageController extends Controller
         ]);
 
         $packages = new Package();
-        $packages->user_id = Auth::user()->id;
+        $packages->user_id = $request->user()->id;
         $packages->name = $request->input('name');
         $packages->type = $request->input('type');
         $packages->height = $request->input('height');
